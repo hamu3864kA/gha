@@ -21,6 +21,6 @@ jobs:
       - name: 静的解析を実行する
         run: go vet ./...
       - name: テストを実行する
-        run: got test
+        run: go test
       - name: ビルドを実行する
         run: go build
