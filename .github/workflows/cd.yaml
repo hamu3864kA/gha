@@ -14,10 +14,10 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
-      - name: Container Registory に認証する
       - name: 大文字を小文字に変換する
         run: |
           echo "REPO=${github.repository,,}" >>${GITHUB_ENV}
+      - name: Container Registory に認証する
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Docker ビルドを実行する
         run: docker build -t ghcr.io/${{ env.REPO }}:latest .
