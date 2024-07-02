@@ -17,10 +17,10 @@ jobs:
         with:
           go-version: "1.22.4"
       - name: フォーマットを実行する
-        run: test -z $(gofmt -l .)
+        run: test -z $(go fmt -l .)
       - name: 静的解析を実行する
         run: go vet ./...
       - name: テストを実行する
-        run: got test
+        run: go test
       - name: ビルドを実行する
         run: go build
